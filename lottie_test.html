@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>로티 테스트</title>
+  <style>
+    body{ background: #fff; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; gap: 30px; }
+    #lottie1.lottie-container{ width: 400px; height: 400px; }
+    #lottie2.lottie-container{ width: 200px; height: 200px; }
+  </style>
+</head>
+<body>
+  <p style="color: #666; font-size: 24px; margin: 50px;">로티 테스트</p>
+
+  <div id="lottie1" class="lottie-container"></div>
+  <div id="lottie2" class="lottie-container"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+  <script>
+    function loadLottie(id, jsonPath) {
+      fetch(jsonPath)
+        .then(res => res.json())
+        .then(data => {
+          lottie.loadAnimation({
+            container: document.getElementById(id),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            animationData: data
+          });
+        });
+    }
+
+    loadLottie("lottie1", "easy_test.json");
+    loadLottie("lottie2", "optimized_check.json");
+  </script>
+</body>
+</html>
